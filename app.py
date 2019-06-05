@@ -5,10 +5,8 @@ from hashlib import sha1
 
 url = 'https://api.codenation.dev/v1/challenge/dev-ps/'
 token = '?token=62ebf2cee933356a5e46eb480772725b55b3af4f'
-obter = 'generate-data'
-enviar = "submit-solution"
 
-response = requests.get(url + obter + token)
+response = requests.get(url + 'generate-data' + token)
 
 dados_api = response.content
 conteudo_json_api = json.loads(dados_api) 
@@ -32,7 +30,7 @@ conteudo_json_local['resumo_criptografico'] = resumo
 functions.salvar_json(conteudo_json_local)
 
 # enviando arquivo 
-functions.enviar_arquivo('answer.json', url + enviar + token)
+functions.enviar_arquivo('answer.json', url + 'submit-solution' + token)
 
 
 
